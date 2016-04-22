@@ -13,14 +13,12 @@ Clone o projeto para seu host
 ```
 git clone https://github.com/romero1989/suge-project.git
 ```
-Crie a pasta:
-```
-mkdir bootstrap/cache
-```
 Entre no diretório do projeto e execute o seguinte comando:
 ```
 composer update
+composer install
 ```
+Ajuste as configurações do arquivo .env
 
 ## Execução do sistema
 Ainda no diretório do projeto execute o comando:

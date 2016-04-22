@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace suge\Http\Controllers;
 use Auth;
-use App\Http\Requests;
+use suge\Http\Requests;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {

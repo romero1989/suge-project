@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace suge\Http\Controllers;
 
 use Illuminate\Support\Facades\Input;
-//use App\Usuario;
-use App\User;
+//use suge\Usuario;
+use suge\User;
 use Validator;
 
 class UsuarioController extends Controller {

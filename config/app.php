@@ -137,10 +137,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        suge\Providers\AppServiceProvider::class,
+        suge\Providers\AuthServiceProvider::class,
+        suge\Providers\EventServiceProvider::class,
+        suge\Providers\RouteServiceProvider::class,
         /**
          * Third Party Service Providers...
          */

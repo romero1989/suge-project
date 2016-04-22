@@ -16,6 +16,7 @@ git clone https://github.com/romero1989/suge-project.git
 Entre no diretório do projeto e execute o seguinte comando:
 ```
 composer update
+php artisan key:generate
 ```
 Ajuste as configurações do arquivo .env
 

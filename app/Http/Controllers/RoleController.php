@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace suge\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use suge\Http\Requests;
 use DCN\RBAC\Models\Role;
 use DB;
 use Validator;

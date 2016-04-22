@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace suge\Events;
 
 abstract class Event
 {

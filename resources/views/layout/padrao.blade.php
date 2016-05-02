@@ -8,7 +8,7 @@
 	<meta name="description" content="Sistema de Gestão Acadêmica - SGA" />
 	<meta name="author" content="" />
 
-	<title>@yield('title')SGA - Sistema de Gestão Acadêmica</title>
+	<title>@yield('title') - Sistema Unificado de Gestão Educacional - SUGE</title>
 
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 	<link rel="stylesheet" href="{{ asset('assets/css/fonts/linecons/css/linecons.css') }}">
@@ -30,34 +30,54 @@
 	<![endif]-->
 </head>
 <body class="page-body">
-
+@include('layout._partials.modal')
     @include('layout.top')
 	
 	<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
-        @include('layout.sidebar')
+            @include('layout.sidebar')
 
             <div class="main-content">
-            @include('layout.menubar')
+                @include('layout.menubar')
+                
+                <div class="page-title">
+                    <div class="title-env">
+                        <h1 class="title">@yield('title')</h1>
+                        <p class="description">@yield('title.descricao')</p>
+                    </div>
+                    @yield('breadcrumbs')
+                </div>
+                @yield('conteudo')
 
-            @yield('conteudo')
-
-            @include('layout.footer')
-
+                @include('layout.footer')
             </div>
-    </div>
+        </div>
+    
     @yield('js')
     
-	<!-- Bottom Scripts -->
-	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('assets/js/TweenMax.min.js') }}"></script>
-	<script src="{{ asset('assets/js/resizeable.js') }}"></script>
-	<script src="{{ asset('assets/js/joinable.js') }}"></script>
-	<script src="{{ asset('assets/js/xenon-api.js') }}"></script>
-	<script src="{{ asset('assets/js/xenon-toggles.js') }}"></script>
+    <!-- Bottom Scripts -->
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/TweenMax.min.js') }}"></script>
+    <script src="{{ asset('assets/js/resizeable.js') }}"></script>
+    <script src="{{ asset('assets/js/joinable.js') }}"></script>
+    <script src="{{ asset('assets/js/xenon-api.js') }}"></script>
+    <script src="{{ asset('assets/js/xenon-toggles.js') }}"></script>
 
-	<!-- JavaScripts initializations and stuff -->
-	<script src="{{ asset('assets/js/xenon-custom.js') }}"></script>
+    <!-- JavaScripts initializations and stuff -->
+    <script src="{{ asset('assets/js/xenon-custom.js') }}"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    
+    <script>
+    $(function() {
+        $('#flash_message').delay(500).fadeIn('normal', function() {
+           $(this).delay(2500).fadeOut();
+        });
+     });
+    </script>
+
+<meta name="_token" content="{!! csrf_token() !!}" />
     
 </body>
 </html>

@@ -145,6 +145,11 @@ return [
          * Third Party Service Providers...
          */
         DCN\RBAC\RBACServiceProvider::class,
+        /**
+         * Breadcrumbs
+         */
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -164,6 +169,7 @@ return [
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
@@ -172,6 +178,7 @@ return [
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
+        'Flash' => Laracasts\Flash\Flash::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,

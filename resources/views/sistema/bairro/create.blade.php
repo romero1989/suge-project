@@ -1,7 +1,7 @@
 @extends('layout.padrao')
-@section('title', 'Perfil')
-@section('title.descricao', 'Cadastrar Perfil')
-@section('breadcrumbs', Breadcrumbs::render('sistema.perfil'))
+@section('title', 'Bairro')
+@section('title.descricao', 'Cadastrar Bairro')
+@section('breadcrumbs', Breadcrumbs::render('sistema.bairro'))
 
 @section('conteudo')
 
@@ -39,12 +39,6 @@
                                 {!! Form::text('description', '', ['class' => 'form-control', 'placeholder' => 'Descrição do Perfil']) !!}
                         </div>
                 
-                        
-                        <div class="form-group">
-                                <!-- Campo status -->
-                                {!! Form::label('parent_label', 'Perfil Pai:', ['class' => 'control-label']) !!}
-                                {!! Form::select('parent_id', $perfil , array('class' => 'form-control')) !!}
-                        </div>
 
                         <div class="form-group">
                                 {!! Form::submit('Cadastrar Perfil', ['class' => 'btn btn-primary']) !!}
@@ -58,23 +52,6 @@
         </div>
 
 </div>
-
-<script>
-    $(document).ready(function ($) {
-        //$('input[name=telefone]').mask('(99) 99999-9999');
-        $('input[name=telefone]').focusout(function(){
-                var phone, element;
-                element = $(this);
-                element.unmask();
-                phone = element.val().replace(/\D/g, '');
-                if(phone.length > 10) {
-                        element.mask("(99) 99999-9999");
-                } else {
-                        element.mask("(99) 9999-99999");
-                }
-        }).trigger('focusout');
-    });
-</script>
 @stop
 
 

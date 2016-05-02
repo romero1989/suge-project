@@ -38,15 +38,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::Auth();
     Route::get('/', 'HomeController@index');    
     Route::get('/dashboard', 'HomeController@dashboard');
+
+    Route::resource('sistema/bairro', 'BairroController');
     
     //Rotas para o gerenciamento de perfill (Role)
     Route::get('sistema/perfil', 'RoleController@index');
     Route::get('sistema/perfil/create', 'RoleController@create');
     Route::post('sistema/perfil/store', 'RoleController@store');
+    Route::get('sistema/perfil/delete/{id}', 'RoleController@delete');
     
-    
-    
-    
+    // Rotas para o gerenciamento de Usuarios (Users)
     Route::get('sistema/usuario', 'UsuarioController@index');
     Route::get('sistema/usuario/create', 'UsuarioController@create');
     Route::post('sistema/usuario/store', 'UsuarioController@store');

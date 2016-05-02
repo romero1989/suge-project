@@ -2,11 +2,13 @@
 
 namespace suge\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use suge\Http\Requests;
 use DCN\RBAC\Models\Role;
 use DB;
 use Validator;
+use Flash;
 
 
 class RoleController extends Controller {
@@ -45,9 +47,6 @@ class RoleController extends Controller {
      */
     public function store(Request $request) {
         $input = $request->all();
-        
-        
-
         //$validator = Validator::make($input);
         
         if ($input['parent_id'] == 0) { $input['parent_id'] = NULL; }
@@ -60,7 +59,10 @@ class RoleController extends Controller {
 
         Role::create($input);
 
-        return redirect()->back()->with('flash_message', 'Perfil criado com suscesso!');
+        Flash::success('Perfil criado com sucesso!');
+        return redirect('sistema/perfil');
+
+        //return redirect()->back()->with('flash_message', 'Perfil criado com suscesso!');
     }
 
     /**
@@ -100,8 +102,12 @@ class RoleController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function delete($id) {
         //
+        $role = Role::findOrFail($id);
+        $role->delete();
+        Flash::success('Perfil excluido com sucesso!');
+        return redirect('sistema/perfil');
     }
 
 }

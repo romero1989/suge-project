@@ -1,16 +1,14 @@
 @extends('layout.padrao')
-@section('title', 'Cadastro de Usuários ')
+@section('title', 'Usuário')
+@section('title.descricao', 'Cadastrar')
+@section('breadcrumbs', Breadcrumbs::render('sistema.usuario'))
 
 @section('conteudo')
 
-<div class="page-title">
-    @include('title', array('diretorio'=>'Usuário', 'acao'=>'Cadastrar'))
-    @include('breadcrumb', array('diretorio'=>'Usuário', 'acao'=>'Cadastrar'))
-</div>
 
-@include('success')
-@include('error')
-@include('alert')
+@include('layout._partials.success')
+@include('layout._partials.error')
+@include('layout._partials.alert')
 
 <div class="container">
     <div class="row">

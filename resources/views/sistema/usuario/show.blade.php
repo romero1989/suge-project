@@ -1,13 +1,9 @@
 @extends('layout.padrao')
-@section('title', 'Edição de Usuários ')
+@section('title', 'Usuário')
+@section('title.descricao', 'Dados do Usuário')
+@section('breadcrumbs', Breadcrumbs::render('sistema.usuario'))
 
 @section('conteudo')
-
-<div class="page-title">
-    @include('title', array('diretorio'=>'Usuário', 'acao'=>'Visualizar'))
-    @include('breadcrumb', array('diretorio'=>'Usuário', 'acao'=>'Visualizar'))
-</div>
-
 
 
 <div class="container">

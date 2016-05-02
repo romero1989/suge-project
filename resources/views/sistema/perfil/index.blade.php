@@ -1,15 +1,13 @@
 @extends('layout.padrao')
-@section('title', 'Perfil - ')
+@section('title', 'Perfil')
+
+@section('title.descricao', 'Lista de Perfil')
+@section('breadcrumbs', Breadcrumbs::render('sistema.perfil'))
 
 @section('conteudo')
+@include('flash::message')
 
-<div class="page-title">
-    @include('title', array('diretorio'=>'Perfil', 'acao'=>'Lista de Perfil'))
-    @include('breadcrumb', array('diretorio'=>'sistema/perfil', 'titulo'=>'Perfil', 'acao'=>'Lista de Perfil'))   
-</div>
-
-@include('success')
-@include('modal')
+@include('layout._partials.modal')
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -17,7 +15,7 @@
     </div>
     <div class="panel-body">
         <p>
-            <a href="{{ action('RoleController@create')}}" class="btn btn-info">Novo</a>        
+            <a href="{{ action('RoleController@create')}}" class="btn btn-info">Novo</a>     
         </p>
             <table id="example-1" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example-1_info" style="width: 100%;">
                 <thead>
@@ -46,14 +44,14 @@
                         <td class="text-center">  
                             <a class="fa-pencil" href="{{ action('UsuarioController@edit', $p->id) }}"></a> 
                             <a class="fa-search" href="{{ action('Auth\AuthController@getRegister', array('registerView' => $p->id)) }}"></a>
-                            <a href="#" class="fa-trash" data-href="{{ action('UsuarioController@delete', $p->id) }}" data-toggle="modal" data-target="#confirm-delete"></a><br>
+                            <a href="#" class="fa-trash" data-href="{{ action('RoleController@delete', $p->id) }}" data-toggle="modal" data-target="#confirm-delete"></a><br>
                         </td>  
                     </tr>
                     @endforeach
                 </tbody>
             </table>
     </div>
-
+    
 </div>
 
 <script>
@@ -61,10 +59,6 @@
         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 
         //$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-    });
-
-    $(document).ready(function ($) {
-        $('#flash_message').fadeOut(3000);
     });
 </script>
 

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 //use App\Usuario;
 use App\User;
 use Validator;
+use Flash;
 
 class UsuarioController extends Controller {
 
@@ -41,15 +42,24 @@ class UsuarioController extends Controller {
     }
 
     public function show($id) {
-        $usuario = Usuario::find($id);
+        $usuario = User::find($id);
         return view('sistema.usuario.show', ['usuario' => $usuario]);
     }
 
-    public function edit($id) {
-        $usuario = User::find($id);
-        return view('sistema.usuario.edit', ['usuario' => $usuario]);
-    }
+//    public function edit($id) {
+//        $usuario = User::findOrFail($id);
+//        return view('sistema.usuario.edit', ['usuario' => $usuario]);
+//    }
 
+    public function edit(Usuario $usuario, Request $request) {
+        if($request->ajax()){
+            
+        }else{
+            $usuarios = Auth::user()->usuarios()->orderby('id')->get();
+            
+        }
+    }
+    
     public function update($id) {
         $usuario = Usuario::findOrFail($id);
 
@@ -69,9 +79,11 @@ class UsuarioController extends Controller {
     }
 
     public function delete($id) {
-        $usuario = Usuario::findOrFail($id);
+        $usuario = User::findOrFail($id);
         $usuario->delete();
-        return redirect('sistema.usuario')->with('flash_message', 'Usuário deletado com suscesso!');
+        //return redirect('sistema/usuario')->with('flash_message', 'Usuário deletado com suscesso!');
+        Flash::success('Usuário excluido com sucesso!');
+        return redirect('sistema/usuario');
     }
-
+    
 }

@@ -8,9 +8,7 @@
 
         <!-- Add your copyright text here -->
         <div class="footer-text">
-            &copy; 2016 
-            <strong>R&T Soluções em Sistemas de Informação</strong>
-            
+            &copy; 2016 &bull; <strong>R&T - Soluções em Sistemas de Informação</strong>
         </div>
 
 

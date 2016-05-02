@@ -4,8 +4,11 @@
         <span class="title">Sistema</span>
     </a>
     <ul>
-
-        
+        <li class="{{ Request::is('sistema/bairro')? 'active': '' }}">
+            <a href="/sistema/bairro">
+                <span class="title">Bairro</span>
+            </a>
+        </li>
         <li class="{{ Request::is('sistema/usuario')? 'active': '' }}">
             <a href="/sistema/usuario">
                 <span class="title">Usuários</span>

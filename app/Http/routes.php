@@ -39,6 +39,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'HomeController@index');    
     Route::get('/dashboard', 'HomeController@dashboard');
 
+    Route::resource('secretaria/academico', 'AcademicoController@index');
+
     Route::resource('sistema/bairro', 'BairroController');
     
     //Rotas para o gerenciamento de perfill (Role)
@@ -46,6 +48,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('sistema/perfil/create', 'RoleController@create');
     Route::post('sistema/perfil/store', 'RoleController@store');
     Route::get('sistema/perfil/delete/{id}', 'RoleController@delete');
+    Route::get('sistema/perfil/edit/{id}', 'RoleController@edit');
+    Route::patch('sistema/perfil/update/{id}', 'RoleController@update');
+
     
     // Rotas para o gerenciamento de Usuarios (Users)
     Route::get('sistema/usuario', 'UsuarioController@index');

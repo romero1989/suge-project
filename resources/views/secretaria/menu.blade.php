@@ -1,10 +1,15 @@
-<li>
+<li class="{{ Request::is('secretaria/*')? 'opened active expanded has-sub': '' }}">
     <a href="#">
         <i class="fa-mortar-board"></i>
         <span class="title">Secretaria Acadêmica</span>
     </a>
 
     <ul>
+        <li class="{{ Request::is('secretaria/academico')? 'active': '' }}">
+            <a href="/secretaria/academico">
+                <span class="title">Acadêmico</span>
+            </a>
+        </li>
         @permission('view.requerimento') 
         <li>
             <a href="#">

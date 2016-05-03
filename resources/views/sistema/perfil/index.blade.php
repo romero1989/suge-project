@@ -42,8 +42,7 @@
                         @endif
                         </td> 
                         <td class="text-center">  
-                            <a class="fa-pencil" href="{{ action('UsuarioController@edit', $p->id) }}"></a> 
-                            <a class="fa-search" href="{{ action('Auth\AuthController@getRegister', array('registerView' => $p->id)) }}"></a>
+                            <a class="fa-pencil" href="{{ action('RoleController@edit', $p->id) }}"></a>
                             <a href="#" class="fa-trash" data-href="{{ action('RoleController@delete', $p->id) }}" data-toggle="modal" data-target="#confirm-delete"></a><br>
                         </td>  
                     </tr>

@@ -47,7 +47,7 @@ class RoleController extends Controller {
      */
     public function store(Request $request) {
         $input = $request->all();
-        //$validator = Validator::make($input);
+ //       $validator = Validator::make($input);
         
         if ($input['parent_id'] == 0) { $input['parent_id'] = NULL; }
 
@@ -82,7 +82,12 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $perfil = Role::findOrFail($id);
+
+        $roles = array( '0' =>'Nenhum') +
+            DB::table('roles')->orderBy('id', 'asc')->lists('name', 'id');
+
+        return view('sistema.perfil.edit', ['perfil' => $perfil, 'roles' => $roles]);
     }
 
     /**
@@ -93,7 +98,24 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        $perfil = Role::findOrFail($id);
+
+        $input = Input::all();
+
+        if ($input['parent_id'] == 0) { $input['parent_id'] = NULL; }
+
+        /** $validator = Validator::make($input, Usuario::rules(), Usuario::message());
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+         */
+
+        $perfil->fill($input)->save();
+        Flash::success('Perfil criado com sucesso!');
+        return redirect('sistema/perfil');
     }
 
     /**

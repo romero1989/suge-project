@@ -4,6 +4,23 @@ Breadcrumbs::register('inicio', function($breadcrumbs) {
     $breadcrumbs->push('Início', url('/'));
 });
 
+/*
+ *      SECRETARIA ACADÊMICA
+ */
+Breadcrumbs::register('secretaria', function($breadcrumbs) {
+    $breadcrumbs->push('Secretaria', url('/secretaria'));
+});
+
+Breadcrumbs::register('secretaria.academico', function($breadcrumbs) {
+    $breadcrumbs->parent('inicio');
+    $breadcrumbs->parent('secretaria');
+    $breadcrumbs->push('Acadêmico', url('/secretaria/academico'));
+});
+
+/*
+ *      SISTEMA
+ */
+
 Breadcrumbs::register('sistema', function($breadcrumbs) {
     $breadcrumbs->push('Sistema', url('/sistema'));
 });

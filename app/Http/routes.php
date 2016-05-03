@@ -39,6 +39,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'HomeController@index');    
     Route::get('/dashboard', 'HomeController@dashboard');
 
+    Route::resource('secretaria/academico', 'AcademicoController@index');
+
     Route::resource('sistema/bairro', 'BairroController');
     
     //Rotas para o gerenciamento de perfill (Role)

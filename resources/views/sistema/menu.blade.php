@@ -19,5 +19,10 @@
                 <span class="title">Perfil</span>
             </a>
         </li>
+        <li class="{{ Request::is('sistema/permissao')? 'active': '' }}">
+            <a href="/sistema/permissao">
+                <span class="title">Permissão</span>
+            </a>
+        </li>
     </ul>
 </li>

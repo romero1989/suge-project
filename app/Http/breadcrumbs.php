@@ -42,3 +42,9 @@ Breadcrumbs::register('sistema.perfil', function($breadcrumbs) {
     $breadcrumbs->parent('sistema');
     $breadcrumbs->push('Perfil', url('/sistema/perfil'));
 });
+
+Breadcrumbs::register('sistema.permissao', function($breadcrumbs) {
+    $breadcrumbs->parent('inicio');
+    $breadcrumbs->parent('sistema');
+    $breadcrumbs->push('Permissão', url('/sistema/permissao'));
+});

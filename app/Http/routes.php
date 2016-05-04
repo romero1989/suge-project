@@ -43,7 +43,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('sistema/bairro', 'BairroController');
     
-    //Rotas para o gerenciamento de perfill (Role)
+    //Rotas para o gerenciamento de perfil (Role)
     Route::get('sistema/perfil', 'RoleController@index');
     Route::get('sistema/perfil/create', 'RoleController@create');
     Route::post('sistema/perfil/store', 'RoleController@store');
@@ -60,6 +60,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('sistema/usuario/delete/{id}', 'UsuarioController@delete');
     Route::get('sistema/usuario/show/{id}', 'UsuarioController@show');
     Route::patch('sistema/usuario/update/{id}', 'UsuarioController@update');
+
+    //Rotas para o gerenciamento de permissao (Permission)
+    Route::get('sistema/permissao', 'PermissionController@index');
+    Route::get('sistema/permissao/assign', 'PermissionController@assign');
+    Route::post('sistema/permissao/assignStore', 'PermissionController@assignStore');
+    Route::get('sistema/permissao/create', 'PermissionController@create');
+    Route::post('sistema/permissao/store', 'PermissionController@store');
+    Route::get('sistema/permissao/delete/{id}', 'PermissionController@delete');
+    Route::get('sistema/permissao/edit/{id}', 'PermissionController@edit');
+    Route::patch('sistema/permissao/update/{id}', 'PermissionController@update');
 
 
 
